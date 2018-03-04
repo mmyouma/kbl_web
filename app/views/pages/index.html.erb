@@ -7,7 +7,8 @@
         <ul class="list-inline">
           <li><%= link_to"About us",about_path %></li>
           <li><%= link_to"Access",access_path %></li>
-          <li><%= link_to "Log in",login_path %></li>
+          <li><%= link_to"Activities",activities_path %></li>
+          <li><%= link_to"Contact",contact_path %></li>
           <i class="fa-twitter"></i>
        </ul>
       </div>
@@ -24,8 +25,6 @@
 
   <% if user_signed_in? %>
     Logged in as <strong><%= current_user.email %></strong>.
-    <li><%= link_to"Activities",activities_path %></li>
-    <li><%= link_to"Contact",contact_path %></li>
     <%= link_to "Settings", edit_user_registration_path, :class => "navbar-link" %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "navbar-link" %>
   <% else %>
