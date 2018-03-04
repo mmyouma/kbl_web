@@ -1,7 +1,35 @@
-<div class="container">
-  <div class="header-left">
-    <%= image_tag("kbl_logo.jpg") %>
-    <%= link_to "アクティビティ", activities_path %>
-    <%= link_to "卒業生", graduates_path %>
+<div class="header">
+  <div class="container">
+      <div class="header-logo">
+        <%= image_tag("kbl_logo2.png", :size => "80x50", :alt => "アイコン") %>
+      </div>
+      <div class="header-right">
+        <ul class="list-inline">
+          <li><%= link_to"About us",about_path %></li>
+          <li><%= link_to"Access",access_path %></li>
+          <li><%= link_to "Log in",login_path %></li>
+          <i class="fa-twitter"></i>
+       </ul>
+      </div>
   </div>
+</div>
+<div class="body">
+  <div class="title">
+    <h1>Keio Badminton Lovers!</h1>
+  </div>
+  <div>
+    <h3>About</h3>
+    <p>#</p>
+  </div>
+
+  <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>.
+    <li><%= link_to"Activities",activities_path %></li>
+    <li><%= link_to"Contact",contact_path %></li>
+    <%= link_to "Settings", edit_user_registration_path, :class => "navbar-link" %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "navbar-link" %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+  <% end %>
 </div>
